@@ -25,7 +25,8 @@ public class DAOManager {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Properties info = new Properties();
 			FileInputStream fs = new FileInputStream("src/main/java/db.properties");
-			info.load(fs);			 
+			info.load(fs);	
+			// new comment
 			Connection conn = DriverManager.getConnection(URL, info);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from Persons");
