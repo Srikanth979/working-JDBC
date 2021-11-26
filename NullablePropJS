@@ -1,0 +1,26 @@
+
+function getNullableProp(obj, prop) {
+  var res = undefined;
+  try {
+  	var propArray = [];
+    if (prop && (prop.indexOf('.') != -1)) {
+    	propArray = prop.split('.');
+    }
+    if (propArray.length > 0) {    	
+    	var temp = obj[propArray[0]];      
+      for (var i=1; i<propArray.length; i++) {
+      		//console.log(temp, 'first element : '+ i);
+      		if (temp != null) {          
+          	temp = temp[propArray[i]];         
+            res = temp;
+          } else {
+          	res = undefined;
+          	break;
+          }
+      }
+    } else {
+	    res = obj[prop];    
+    }
+  } catch(e) {}
+  return res;
+}
